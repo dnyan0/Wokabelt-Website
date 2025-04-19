@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Book Service - Wokabelt</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="booking.css" />
+  <script src="https://kit.fontawesome.com/26c0f690dc.js" crossorigin="anonymous"></script>
+</head>
+<body>
+  <header class="navbar">
+    <div class="brand">
+      <a href="index.html" class="brand-link">
+        <img src="images/Wokabelt_logo.png" alt="Wokabelt Logo" class="logo circle-logo" />
+        <div class="brand-text">
+          <h1>Wokabelt</h1>
+          <p class="tagline">Connecting local professionals</p>
+        </div>
+      </a>
+    </div>
+    <nav class="main-nav">
+      <ul>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="shop.html">Cart</a></li>
+        <li><a href="learning.html">Learning</a></li>
+        <li><a href="login.html">Login</a></li>
+        <li><a href="signup.html" class="signup-btn">Sign Up</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="booking-container">
+    <div class="booking-box">
+      <h2>Book Service</h2>
+      <div id="service-details" class="service-details">
+        <!-- Service details will be populated by JavaScript -->
+      </div>
+      
+      <form id="bookingForm" class="booking-form">
+        <div class="form-group">
+          <label for="date">Select Date</label>
+          <input type="date" id="date" name="date" required min="" />
+        </div>
+
+        <div class="form-group">
+          <label for="time">Select Time</label>
+          <input type="time" id="time" name="time" required />
+        </div>
+
+        <div class="form-group">
+          <label for="address">Service Address</label>
+          <textarea id="address" name="address" rows="3" required placeholder="Enter your address"></textarea>
+        </div>
+
+        <div class="form-group">
+          <label for="notes">Additional Notes</label>
+          <textarea id="notes" name="notes" rows="3" placeholder="Any special requirements or notes"></textarea>
+        </div>
+
+        <div class="booking-summary">
+          <h3>Booking Summary</h3>
+          <div class="summary-item">
+            <span>Service Fee:</span>
+            <span id="service-fee">₹0</span>
+          </div>
+          <div class="summary-item">
+            <span>Duration:</span>
+            <span id="service-duration">0 hours</span>
+          </div>
+          <div class="summary-item total">
+            <span>Total:</span>
+            <span id="total-amount">₹0</span>
+          </div>
+        </div>
+
+        <button type="submit" class="confirm-btn">Confirm Booking</button>
+      </form>
+    </div>
+  </main>
+
+  <script>
+    // Get selected service from localStorage
+    const selectedService = JSON.parse(localStorage.getItem('selectedService'));
+    
+    if (!selectedService) {
+      window.location.href = 'services.html';
+    }
+
+    // Set minimum date to today
+    const dateInput = document.getElementById('date');
+    const today = new Date().toISOString().split('T')[0];
+    dateInput.min = today;
+
+    // Populate service details
+    const serviceDetails = document.getElementById('service-details');
+    const stars = Array(5).fill().map((_, i) => {
+      const rating = selectedService.rating;
+      if (i + 0.5 <= rating) return '<i class="fas fa-star"></i>';
+      if (i + 1 <= rating) return '<i class="fas fa-star"></i>';
+      return '<i class="far fa-star"></i>';
+    }).join('');
+
+    serviceDetails.innerHTML = `
+      <div class="service-info">
+        <h3>${selectedService.title}</h3>
+        <div class="service-rating">
+          ${stars}
+          <span>(${selectedService.rating})</span>
+        </div>
+        <p class="service-description">${selectedService.description}</p>
+        <div class="service-meta">
+          <span><i class="fas fa-map-marker-alt"></i> ${selectedService.location}</span>
+          <span><i class="fas fa-clock"></i> ${selectedService.duration}</span>
+        </div>
+        <div class="service-price">
+          <span>Price:</span>
+          <span>${selectedService.price}</span>
+        </div>
+      </div>
+    `;
+
+    // Update booking summary
+    document.getElementById('service-fee').textContent = selectedService.price;
+    document.getElementById('service-duration').textContent = selectedService.duration;
+    document.getElementById('total-amount').textContent = selectedService.price;
+
+    // Handle form submission
+    document.getElementById('bookingForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      
+      const bookingData = {
+        service: selectedService,
+        date: document.getElementById('date').value,
+        time: document.getElementById('time').value,
+        address: document.getElementById('address').value,
+        notes: document.getElementById('notes').value
+      };
+
+      // Store booking data
+      localStorage.setItem('bookingData', JSON.stringify(bookingData));
+      
+      // Redirect to payment page
+      window.location.href = 'payment.html';
+    });
+  </script>
+</body>
+</html> 

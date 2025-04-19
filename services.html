@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Services - Wokabelt</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="services.css" />
+  <script src="https://kit.fontawesome.com/26c0f690dc.js" crossorigin="anonymous"></script>
+</head>
+<body>
+  <header class="navbar">
+    <div class="brand">
+      <a href="index.html" class="brand-link">
+        <img src="images/Wokabelt_logo.png" alt="Wokabelt Logo" class="logo circle-logo" />
+        <div class="brand-text">
+          <h1>Wokabelt</h1>
+          <p class="tagline">Connecting local professionals</p>
+        </div>
+      </a>
+    </div>
+    <nav class="main-nav">
+      <ul>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="cart.html">Cart</a></li>
+        <li><a href="learning.html">Learning</a></li>
+        <li><a href="login.html">Login</a></li>
+        <li><a href="signup.html" class="signup-btn">Sign Up</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="services-container">
+    <section class="search-section">
+      <div class="search-box">
+        <i class="fas fa-search"></i>
+        <input type="text" placeholder="Search for services..." />
+        <button class="search-btn">Search</button>
+      </div>
+      <div class="filter-options">
+        <select class="filter-select">
+          <option value="">All Categories</option>
+          <option value="plumbing">Plumbing</option>
+          <option value="web-dev">Web Development</option>
+          <option value="delivery">Delivery</option>
+          <option value="photography">Photography</option>
+        </select>
+        <select class="filter-select">
+          <option value="">Sort By</option>
+          <option value="rating">Highest Rated</option>
+          <option value="price-low">Price: Low to High</option>
+          <option value="price-high">Price: High to Low</option>
+        </select>
+      </div>
+    </section>
+
+    <section class="categories-section">
+      <h2>Popular Categories</h2>
+      <div class="categories-grid">
+        <a href="#" class="category-card">
+          <i class="fas fa-wrench"></i>
+          <span>Plumbing</span>
+        </a>
+        <a href="#" class="category-card">
+          <i class="fas fa-laptop-code"></i>
+          <span>Web Development</span>
+        </a>
+        <a href="#" class="category-card">
+          <i class="fas fa-truck"></i>
+          <span>Delivery</span>
+        </a>
+        <a href="#" class="category-card">
+          <i class="fas fa-camera"></i>
+          <span>Photography</span>
+        </a>
+        <a href="#" class="category-card">
+          <i class="fas fa-paint-brush"></i>
+          <span>Design</span>
+        </a>
+        <a href="#" class="category-card">
+          <i class="fas fa-chalkboard-teacher"></i>
+          <span>Tutoring</span>
+        </a>
+      </div>
+    </section>
+
+    <section class="services-section">
+      <h2>Available Services</h2>
+      <div class="services-grid">
+        <div class="service-card">
+          <div class="service-image">
+            <img src="images/plumber.png" alt="Plumbing Service" />
+            <span class="service-price">₹500/hr</span>
+          </div>
+          <div class="service-info">
+            <h3>Professional Plumbing Services</h3>
+            <div class="service-rating">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star-half-alt"></i>
+              <span>(4.5)</span>
+            </div>
+            <p class="service-description">Expert plumbing solutions for homes and businesses. 24/7 emergency service available.</p>
+            <div class="service-meta">
+              <span><i class="fas fa-map-marker-alt"></i> Bangalore</span>
+              <span><i class="fas fa-clock"></i> 2-4 hours</span>
+            </div>
+            <button class="book-btn">Book Now</button>
+          </div>
+        </div>
+
+        <div class="service-card">
+          <div class="service-image">
+            <img src="images/webd.png" alt="Web Development" />
+            <span class="service-price">₹1500/hr</span>
+          </div>
+          <div class="service-info">
+            <h3>Web Development & Design</h3>
+            <div class="service-rating">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <span>(5.0)</span>
+            </div>
+            <p class="service-description">Custom website development, responsive design, and maintenance services.</p>
+            <div class="service-meta">
+              <span><i class="fas fa-map-marker-alt"></i> Remote</span>
+              <span><i class="fas fa-clock"></i> Flexible</span>
+            </div>
+            <button class="book-btn">Book Now</button>
+          </div>
+        </div>
+
+        <div class="service-card">
+          <div class="service-image">
+            <img src="images/photography.png" alt="Photography" />
+            <span class="service-price">₹2000/hr</span>
+          </div>
+          <div class="service-info">
+            <h3>Professional Photography</h3>
+            <div class="service-rating">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="far fa-star"></i>
+              <span>(4.0)</span>
+            </div>
+            <p class="service-description">Event, portrait, and commercial photography services with professional equipment.</p>
+            <div class="service-meta">
+              <span><i class="fas fa-map-marker-alt"></i> Bangalore</span>
+              <span><i class="fas fa-clock"></i> 1-2 hours</span>
+            </div>
+            <button class="book-btn">Book Now</button>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-container">
+      <div class="footer-brand">
+        <img src="images/Wokabelt_logo.png" alt="Wokabelt Logo" class="logo circle-logo" />
+        <h2>Wokabelt</h2>
+        <p>Connecting you with top local professionals.</p>
+      </div>
+      <div class="footer-links">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="shop.html">Cart</a></li>
+          <li><a href="learning.html">Learning</a></li>
+          <li><a href="login.html">Login</a></li>
+        </ul>
+      </div>
+      <div class="footer-contact">
+        <h4>Contact Us</h4>
+        <p>Email: wokabelt@gmail.com</p>
+        <p>Phone: +91 7558697774</p>
+        <p>📍Banglore, India</p>
+        <div class="social-icons">
+          <a href="www.instagram.comm"><i class="fa-brands fa-instagram"></i></a>
+          <a href="www.x.com"><i class="fa-brands fa-x-twitter"></i></a>
+          <a href="www.linkedin.com"><i class="fa-brands fa-linkedin-in"></i></a>
+          <a href="www.youtube.com"><i class="fa-brands fa-youtube"></i></a>
+          <a href="www.facebook.com"><i class="fa-brands fa-facebook"></i></a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2025 Wokabelt. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    // Sample service data
+    const services = [
+      {
+        id: 1,
+        title: "Professional Plumbing Services",
+        category: "plumbing",
+        price: "₹500/hr",
+        rating: 4.5,
+        description: "Expert plumbing solutions for homes and businesses. 24/7 emergency service available.",
+        location: "Bangalore",
+        duration: "2-4 hours",
+        image: "images/plumber.png"
+      },
+      {
+        id: 2,
+        title: "Web Development & Design",
+        category: "web-dev",
+        price: "₹1500/hr",
+        rating: 5.0,
+        description: "Custom website development, responsive design, and maintenance services.",
+        location: "Remote",
+        duration: "Flexible",
+        image: "images/webd.png"
+      },
+      {
+        id: 3,
+        title: "Professional Photography",
+        category: "photography",
+        price: "₹2000/hr",
+        rating: 4.0,
+        description: "Event, portrait, and commercial photography services with professional equipment.",
+        location: "Bangalore",
+        duration: "1-2 hours",
+        image: "images/photography.png"
+      }
+    ];
+
+    // Function to render services
+    function renderServices(filteredServices = services) {
+      const servicesGrid = document.querySelector('.services-grid');
+      servicesGrid.innerHTML = '';
+
+      filteredServices.forEach(service => {
+        const stars = Array(5).fill().map((_, i) => {
+          const rating = service.rating;
+          if (i + 0.5 <= rating) return '<i class="fas fa-star"></i>';
+          if (i + 1 <= rating) return '<i class="fas fa-star"></i>';
+          return '<i class="far fa-star"></i>';
+        }).join('');
+
+        const serviceCard = `
+          <div class="service-card" data-category="${service.category}">
+            <div class="service-image">
+              <img src="${service.image}" alt="${service.title}" />
+              <span class="service-price">${service.price}</span>
+            </div>
+            <div class="service-info">
+              <h3>${service.title}</h3>
+              <div class="service-rating">
+                ${stars}
+                <span>(${service.rating})</span>
+              </div>
+              <p class="service-description">${service.description}</p>
+              <div class="service-meta">
+                <span><i class="fas fa-map-marker-alt"></i> ${service.location}</span>
+                <span><i class="fas fa-clock"></i> ${service.duration}</span>
+              </div>
+              <button class="book-btn" onclick="bookService(${service.id})">Book Now</button>
+            </div>
+          </div>
+        `;
+        servicesGrid.innerHTML += serviceCard;
+      });
+    }
+
+    // Search functionality
+    const searchInput = document.querySelector('.search-box input');
+    const searchBtn = document.querySelector('.search-btn');
+    
+    function handleSearch() {
+      const searchTerm = searchInput.value.toLowerCase();
+      const filteredServices = services.filter(service => 
+        service.title.toLowerCase().includes(searchTerm) ||
+        service.description.toLowerCase().includes(searchTerm)
+      );
+      renderServices(filteredServices);
+    }
+
+    searchBtn.addEventListener('click', handleSearch);
+    searchInput.addEventListener('keyup', (e) => {
+      if (e.key === 'Enter') handleSearch();
+    });
+
+    // Category filter
+    const categoryFilter = document.querySelector('.filter-select');
+    categoryFilter.addEventListener('change', (e) => {
+      const category = e.target.value;
+      const filteredServices = category 
+        ? services.filter(service => service.category === category)
+        : services;
+      renderServices(filteredServices);
+    });
+
+    // Sort functionality
+    const sortFilter = document.querySelectorAll('.filter-select')[1];
+    sortFilter.addEventListener('change', (e) => {
+      const sortBy = e.target.value;
+      let sortedServices = [...services];
+      
+      switch(sortBy) {
+        case 'rating':
+          sortedServices.sort((a, b) => b.rating - a.rating);
+          break;
+        case 'price-low':
+          sortedServices.sort((a, b) => 
+            parseInt(a.price.replace(/[^0-9]/g, '')) - 
+            parseInt(b.price.replace(/[^0-9]/g, ''))
+          );
+          break;
+        case 'price-high':
+          sortedServices.sort((a, b) => 
+            parseInt(b.price.replace(/[^0-9]/g, '')) - 
+            parseInt(a.price.replace(/[^0-9]/g, ''))
+          );
+          break;
+      }
+      
+      renderServices(sortedServices);
+    });
+
+    // Category navigation
+    document.querySelectorAll('.category-card').forEach(card => {
+      card.addEventListener('click', (e) => {
+        e.preventDefault();
+        const category = card.querySelector('span').textContent.toLowerCase();
+        categoryFilter.value = category;
+        const filteredServices = services.filter(service => 
+          service.category === category
+        );
+        renderServices(filteredServices);
+      });
+    });
+
+    // Book service function
+    function bookService(serviceId) {
+      const service = services.find(s => s.id === serviceId);
+      if (!service) return;
+
+      // Check if user is logged in
+      const isLoggedIn = localStorage.getItem('isLoggedIn');
+      if (!isLoggedIn) {
+        if (confirm('You need to login to book a service. Would you like to login now?')) {
+          window.location.href = 'login.html';
+        }
+        return;
+      }
+
+      // Store selected service in localStorage
+      localStorage.setItem('selectedService', JSON.stringify(service));
+      
+      // Redirect to booking page
+      window.location.href = 'booking.html';
+    }
+
+    // Initial render
+    renderServices();
+  </script>
+</body>
+</html> 

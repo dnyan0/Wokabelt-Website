@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cart - Wokabelt</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="cart.css">
+    <script src="https://kit.fontawesome.com/26c0f690dc.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <header class="navbar">
+        <div class="brand">
+            <img src="images/Wokabelt_logo.png" alt="Wokabelt Logo" class="logo circle-logo" />
+            <div class="brand-text">
+                <h1>Wokabelt</h1>
+                <p class="tagline">Connecting local professionals</p>
+            </div>
+        </div>
+        <nav class="main-nav">
+            <ul>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="cart.html">Cart</a></li>
+                <li><a href="learning.html">Learning</a></li>
+                <li><a href="login.html">Login</a></li>
+                <li><a href="signup.html" class="signup-btn">Sign Up</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="cart-container">
+        <div class="cart-header">
+            <h2>Your Cart</h2>
+            <p class="cart-summary">3 items in your cart</p>
+        </div>
+
+        <div class="cart-content">
+            <div class="cart-items">
+                <!-- Service Item 1 -->
+                <div class="cart-item">
+                    <div class="item-image">
+                        <img src="images/plumber.png" alt="Plumbing Service">
+                    </div>
+                    <div class="item-details">
+                        <h3>Professional Plumbing Services</h3>
+                        <p class="item-description">Expert plumbing solutions for homes and businesses</p>
+                        <div class="item-meta">
+                            <span class="location"><i class="fas fa-map-marker-alt"></i> Bangalore</span>
+                            <span class="duration"><i class="fas fa-clock"></i> 2-4 hours</span>
+                        </div>
+                        <div class="item-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                            <span>(4.5)</span>
+                        </div>
+                    </div>
+                    <div class="item-price">
+                        <span class="price">₹500/hr</span>
+                        <div class="quantity-controls">
+                            <button class="quantity-btn" onclick="updateQuantity(this, -1)">-</button>
+                            <span class="quantity">1</span>
+                            <button class="quantity-btn" onclick="updateQuantity(this, 1)">+</button>
+                        </div>
+                        <button class="remove-btn" onclick="removeItem(this)"><i class="fas fa-trash"></i></button>
+                    </div>
+                </div>
+
+                <!-- Service Item 2 -->
+                <div class="cart-item">
+                    <div class="item-image">
+                        <img src="images/webd.png" alt="Web Development">
+                    </div>
+                    <div class="item-details">
+                        <h3>Web Development & Design</h3>
+                        <p class="item-description">Custom website development and maintenance</p>
+                        <div class="item-meta">
+                            <span class="location"><i class="fas fa-map-marker-alt"></i> Remote</span>
+                            <span class="duration"><i class="fas fa-clock"></i> Project-based</span>
+                        </div>
+                        <div class="item-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <span>(5.0)</span>
+                        </div>
+                    </div>
+                    <div class="item-price">
+                        <span class="price">₹1500/hr</span>
+                        <div class="quantity-controls">
+                            <button class="quantity-btn" onclick="updateQuantity(this, -1)">-</button>
+                            <span class="quantity">1</span>
+                            <button class="quantity-btn" onclick="updateQuantity(this, 1)">+</button>
+                        </div>
+                        <button class="remove-btn" onclick="removeItem(this)"><i class="fas fa-trash"></i></button>
+                    </div>
+                </div>
+
+                <!-- Tool Rental Item -->
+                <div class="cart-item">
+                    <div class="item-image">
+                        <img src="images/plumbing-kit.png" alt="Plumbing Kit">
+                    </div>
+                    <div class="item-details">
+                        <h3>Professional Plumbing Kit</h3>
+                        <p class="item-description">Complete set of tools for plumbing work</p>
+                        <div class="item-meta">
+                            <span class="duration"><i class="fas fa-clock"></i> 1 day rental</span>
+                        </div>
+                        <div class="item-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="far fa-star"></i>
+                            <span>(4.0)</span>
+                        </div>
+                    </div>
+                    <div class="item-price">
+                        <span class="price">₹500/day</span>
+                        <div class="quantity-controls">
+                            <button class="quantity-btn" onclick="updateQuantity(this, -1)">-</button>
+                            <span class="quantity">1</span>
+                            <button class="quantity-btn" onclick="updateQuantity(this, 1)">+</button>
+                        </div>
+                        <button class="remove-btn" onclick="removeItem(this)"><i class="fas fa-trash"></i></button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="cart-summary-section">
+                <div class="summary-card">
+                    <h3>Order Summary</h3>
+                    <div class="summary-details">
+                        <div class="summary-row">
+                            <span>Subtotal</span>
+                            <span>₹2500</span>
+                        </div>
+                        <div class="summary-row">
+                            <span>Service Fee</span>
+                            <span>₹250</span>
+                        </div>
+                        <div class="summary-row">
+                            <span>Tax (18%)</span>
+                            <span>₹450</span>
+                        </div>
+                        <div class="summary-row total">
+                            <span>Total</span>
+                            <span>₹3200</span>
+                        </div>
+                    </div>
+                    <div class="promo-code">
+                        <input type="text" placeholder="Enter promo code">
+                        <button class="apply-btn">Apply</button>
+                    </div>
+                    <button class="checkout-btn">Proceed to Checkout</button>
+                    <div class="payment-methods">
+                        <p>Secure Payment Methods:</p>
+                        <div class="payment-icons">
+                            <i class="fab fa-cc-visa"></i>
+                            <i class="fab fa-cc-mastercard"></i>
+                            <i class="fab fa-cc-paypal"></i>
+                            <i class="fab fa-google-pay"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="safety-info">
+                    <div class="safety-item">
+                        <i class="fas fa-shield-alt"></i>
+                        <div>
+                            <h4>Secure Payment</h4>
+                            <p>Your payment information is encrypted and secure</p>
+                        </div>
+                    </div>
+                    <div class="safety-item">
+                        <i class="fas fa-undo"></i>
+                        <div>
+                            <h4>Easy Cancellation</h4>
+                            <p>Cancel or modify your booking up to 24 hours before</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-brand">
+                <img src="images/Wokabelt_logo.png" alt="Wokabelt Logo" class="logo circle-logo" />
+                <h2>Wokabelt</h2>
+                <p>Connecting you with top local professionals.</p>
+            </div>
+            <div class="footer-links">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="cart.html">Cart</a></li>
+                    <li><a href="learning.html">Learning</a></li>
+                    <li><a href="login.html">Login</a></li>
+                </ul>
+            </div>
+            <div class="footer-contact">
+                <h4>Contact Us</h4>
+                <p>Email: wokabelt@gmail.com</p>
+                <p>Phone: +91 7558697774</p>
+                <p>📍Banglore, India</p>
+                <div class="social-icons">
+                    <a href="www.instagram.comm"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="www.x.com"><i class="fa-brands fa-x-twitter"></i></a>
+                    <a href="www.linkedin.com"><i class="fa-brands fa-linkedin-in"></i></a>
+                    <a href="www.youtube.com"><i class="fa-brands fa-youtube"></i></a>
+                    <a href="www.facebook.com"><i class="fa-brands fa-facebook"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Wokabelt. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        function updateQuantity(button, change) {
+            const quantityElement = button.parentElement.querySelector('.quantity');
+            let quantity = parseInt(quantityElement.textContent);
+            quantity += change;
+            if (quantity < 1) quantity = 1;
+            quantityElement.textContent = quantity;
+            updateTotal();
+        }
+
+        function removeItem(button) {
+            const cartItem = button.closest('.cart-item');
+            cartItem.remove();
+            updateCartCount();
+            updateTotal();
+        }
+
+        function updateCartCount() {
+            const cartItems = document.querySelectorAll('.cart-item');
+            const cartSummary = document.querySelector('.cart-summary');
+            cartSummary.textContent = `${cartItems.length} items in your cart`;
+        }
+
+        function updateTotal() {
+            // This would be implemented to calculate the total based on quantities and prices
+            // For now, it's a placeholder
+            console.log('Updating total...');
+        }
+    </script>
+</body>
+</html> 

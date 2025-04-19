@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Professional Services Platform | Sign Up</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .form-container {
+            transition: all 0.3s ease;
+        }
+        .hidden {
+            display: none;
+            opacity: 0;
+        }
+        .visible {
+            display: block;
+            opacity: 1;
+        }
+        .toggle-option {
+            transition: all 0.3s ease;
+        }
+        .toggle-option.active {
+            background-color: #3b82f6;
+            color: white;
+        }
+        .file-upload {
+            position: relative;
+            overflow: hidden;
+        }
+        .file-upload input {
+            position: absolute;
+            top: 0;
+            right: 0;
+            min-width: 100%;
+            min-height: 100%;
+            font-size: 100px;
+            text-align: right;
+            filter: alpha(opacity=0);
+            opacity: 0;
+            outline: none;
+            background: white;
+            cursor: inherit;
+            display: block;
+        }
+        .security-badge {
+            animation: pulse 2s infinite;
+        }
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+    </style>
+</head>
+<body class="bg-gray-50 min-h-screen flex items-center justify-center p-4">
+    <div class="bg-white rounded-xl shadow-lg w-full max-w-4xl mx-auto overflow-hidden">
+        <div class="flex flex-col">
+            <!-- Illustration Header -->
+            <div class="bg-blue-600 p-8 text-white text-center">
+                <div class="flex flex-col items-center">
+                    <div class="w-20 h-20 bg-white bg-opacity-20 rounded-full flex items-center justify-center mb-4">
+                        <i class="fas fa-handshake text-3xl text-white"></i>
+                    </div>
+                    <h2 class="text-3xl font-bold mb-2">Find the Right Professional</h2>
+                    <p class="text-base opacity-90">Join thousands of satisfied customers and professionals</p>
+                </div>
+            </div>
+            
+            <!-- Form Content -->
+            <div class="p-8">
+                <div class="text-center mb-8">
+                    <h1 class="text-3xl font-bold text-gray-800 mb-2">Create Account</h1>
+                    <p class="text-gray-600 text-base">Join our platform to find or offer professional services</p>
+                </div>
+                
+                <!-- Toggle Options -->
+                <div class="flex rounded-lg bg-gray-100 p-1 mb-8">
+                    <button id="hireToggle" class="toggle-option active flex-1 py-3 px-4 rounded-lg text-center text-base font-medium">
+                        <i class="fas fa-user-tie mr-2"></i> Hire a Professional
+                    </button>
+                    <button id="workToggle" class="toggle-option flex-1 py-3 px-4 rounded-lg text-center text-base font-medium">
+                        <i class="fas fa-briefcase mr-2"></i> Register as Professional
+                    </button>
+                </div>
+                
+                <!-- Hire Professional Form -->
+                <div id="hireForm" class="form-container visible">
+                    <form>
+                        <div class="mb-4">
+                            <label for="hireName" class="block text-gray-700 text-base font-medium mb-2">Full Name</label>
+                            <input type="text" id="hireName" class="w-full px-4 py-3 text-base border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Enter your full name" required>
+                        </div>
+                        
+                        <div class="mb-4">
+                            <label for="hireMobile" class="block text-gray-700 text-base font-medium mb-2">Mobile Number</label>
+                            <div class="flex">
+                                <input type="tel" id="hireMobile" class="w-full px-4 py-3 text-base border border-gray-300 rounded-l-lg focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Enter mobile number" required>
+                                <button type="button" id="hireSendOtp" class="bg-blue-500 text-white px-4 py-3 text-base rounded-r-lg hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500">
+                                    Send OTP
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <div class="mb-4 hidden" id="hireOtpField">
+                            <label for="hireOtp" class="block text-gray-700 text-base font-medium mb-2">OTP Verification</label>
+                            <div class="flex">
+                                <input type="text" id="hireOtp" class="w-full px-4 py-3 text-base border border-gray-300 rounded-l-lg focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Enter OTP" maxlength="6">
+                                <button type="button" id="hireVerifyOtp" class="bg-green-500 text-white px-4 py-3 text-base rounded-r-lg hover:bg-green-600 focus:outline-none focus:ring-2 focus:ring-green-500">
+                                    Verify
+                                </button>
+                            </div>
+                            <p class="text-sm text-gray-500 mt-2">OTP sent to your mobile number</p>
+                        </div>
+                        
+                        <div class="mb-4">
+                            <label for="hireAddress" class="block text-gray-700 text-base font-medium mb-2">Address</label>
+                            <textarea id="hireAddress" rows="3" class="w-full px-4 py-3 text-base border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Enter your complete address" required></textarea>
+                        </div>
+                        
+                        <div class="mb-4">
+                            <label for="hireEmail" class="block text-gray-700 text-base font-medium mb-2">Email (optional)</label>
+                            <input type="email" id="hireEmail" class="w-full px-4 py-3 text-base border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Enter your email address">
+                        </div>
+                        
+                        <div class="mb-4">
+                            <label for="hirePassword" class="block text-gray-700 text-base font-medium mb-2">Create Password</label>
+                            <div class="relative">
+                                <input type="password" id="hirePassword" class="w-full px-4 py-3 text-base border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Create a strong password" required>
+                                <button type="button" class="absolute right-4 top-3 text-gray-500 hover:text-gray-700" onclick="togglePassword('hirePassword')">
+                                    <i class="fas fa-eye text-base"></i>
+                                </button>
+                            </div>
+                            <p class="text-sm text-gray-500 mt-2">Minimum 8 characters with at least 1 number</p>
+                        </div>
+                        
+                        <div class="mb-6">
+                            <label for="hireConfirmPassword" class="block text-gray-700 text-base font-medium mb-2">Confirm Password</label>
+                            <div class="relative">
+                                <input type="password" id="hireConfirmPassword" class="w-full px-4 py-3 text-base border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Confirm your password" required>
+                                <button type="button" class="absolute right-4 top-3 text-gray-500 hover:text-gray-700" onclick="togglePassword('hireConfirmPassword')">
+                                    <i class="fas fa-eye text-base"></i>
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <div class="mb-6 flex items-center">
+                            <input type="checkbox" id="hireTerms" class="w-5 h-5 text-blue-600 rounded focus:ring-blue-500" required>
+                            <label for="hireTerms" class="ml-3 text-sm text-gray-700">
+                                I agree to the <a href="#" class="text-blue-600 hover:underline">Terms</a> and <a href="#" class="text-blue-600 hover:underline">Privacy Policy</a>
+                            </label>
+                        </div>
+                        
+                        <button type="submit" class="w-full bg-blue-600 text-white py-3 px-6 rounded-lg text-base font-medium hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 mb-4">
+                            Sign Up
+                        </button>
+                        
+                        <div class="text-center">
+                            <p class="text-gray-600 text-base">Already have an account? <a href="#" class="text-blue-600 font-medium hover:underline">Login</a></p>
+                        </div>
+                    </form>
+                </div>
+                
+                <!-- Find Work Form -->
+                <div id="workForm" class="form-container hidden">
+                    <form>
+                        <div class="mb-4">
+                            <label for="workName" class="block text-gray-700 text-base font-medium mb-2">Full Name</label>
+                            <input type="text" id="workName" class="w-full px-4 py-3 text-base border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Enter your full name" required>
+                        </div>
+                        
+                        <div class="mb-4">
+                            <label for="workMobile" class="block text-gray-700 text-base font-medium mb-2">Mobile Number</label>
+                            <div class="flex">
+                                <input type="tel" id="workMobile" class="w-full px-4 py-3 text-base border border-gray-300 rounded-l-lg focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Enter mobile number" required>
+                                <button type="button" id="workSendOtp" class="bg-blue-500 text-white px-4 py-3 text-base rounded-r-lg hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500">
+                                    Send OTP
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <div class="mb-4 hidden" id="workOtpField">
+                            <label for="workOtp" class="block text-gray-700 text-base font-medium mb-2">OTP Verification</label>
+                            <div class="flex">
+                                <input type="text" id="workOtp" class="w-full px-4 py-3 text-base border border-gray-300 rounded-l-lg focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Enter OTP" maxlength="6">
+                                <button type="button" id="workVerifyOtp" class="bg-green-500 text-white px-4 py-3 text-base rounded-r-lg hover:bg-green-600 focus:outline-none focus:ring-2 focus:ring-green-500">
+                                    Verify
+                                </button>
+                            </div>
+                            <p class="text-sm text-gray-500 mt-2">OTP sent to your mobile number</p>
+                        </div>
+                        
+                        <div class="mb-4">
+                            <label class="block text-gray-700 text-base font-medium mb-2">Profile Photo</label>
+                            <div class="file-upload w-full border-2 border-dashed border-gray-300 rounded-lg p-4 text-center">
+                                <div class="flex flex-col items-center justify-center">
+                                    <i class="fas fa-camera text-2xl text-gray-400 mb-2"></i>
+                                    <p class="text-gray-600 text-sm mb-2">Upload your professional photo</p>
+                                    <p class="text-sm text-gray-500 mb-2">JPG or PNG, max 2MB</p>
+                                    <button type="button" class="bg-blue-50 text-blue-600 px-4 py-2 rounded-lg text-sm hover:bg-blue-100">
+                                        Browse Files
+                                    </button>
+                                </div>
+                                <input type="file" accept="image/*">
+                            </div>
+                        </div>
+                        
+                        <div class="mb-4">
+                            <label for="workAddress" class="block text-gray-700 text-base font-medium mb-2">Address</label>
+                            <textarea id="workAddress" rows="3" class="w-full px-4 py-3 text-base border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Enter your complete address" required></textarea>
+                        </div>
+                        
+                        <div class="mb-4">
+                            <label for="workArea" class="block text-gray-700 text-base font-medium mb-2">Area of Service</label>
+                            <select id="workArea" class="w-full px-4 py-3 text-base border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" required>
+                                <option value="" disabled selected>Select your service area</option>
+                                <option value="cidco">Cidco</option>
+                                <option value="osmanpura">Osmanpura</option>
+                                <option value="karanja">Karanja</option>
+                                <option value="ramdaspeth">Ramdaspeth</option>
+                            </select>
+                        </div>
+                        
+                        <div class="mb-4">
+                            <label class="block text-gray-700 text-base font-medium mb-2">Type of Work</label>
+                            <div class="grid grid-cols-2 gap-3">
+                                <div class="flex items-center">
+                                    <input type="checkbox" id="maid" class="w-5 h-5 text-blue-600 rounded focus:ring-blue-500">
+                                    <label for="maid" class="ml-2 text-sm text-gray-700">Maid</label>
+                                </div>
+                                <div class="flex items-center">
+                                    <input type="checkbox" id="electrician" class="w-5 h-5 text-blue-600 rounded focus:ring-blue-500">
+                                    <label for="electrician" class="ml-2 text-sm text-gray-700">Electrician</label>
+                                </div>
+                                <div class="flex items-center">
+                                    <input type="checkbox" id="plumber" class="w-5 h-5 text-blue-600 rounded focus:ring-blue-500">
+                                    <label for="plumber" class="ml-2 text-sm text-gray-700">Plumber</label>
+                                </div>
+                                <div class="flex items-center">
+                                    <input type="checkbox" id="carpenter" class="w-5 h-5 text-blue-600 rounded focus:ring-blue-500">
+                                    <label for="carpenter" class="ml-2 text-sm text-gray-700">Carpenter</label>
+                                </div>
+                                <div class="flex items-center">
+                                    <input type="checkbox" id="painter" class="w-5 h-5 text-blue-600 rounded focus:ring-blue-500">
+                                    <label for="painter" class="ml-2 text-sm text-gray-700">Painter</label>
+                                </div>
+                                <div class="flex items-center">
+                                    <input type="checkbox" id="driver" class="w-5 h-5 text-blue-600 rounded focus:ring-blue-500">
+                                    <label for="driver" class="ml-2 text-sm text-gray-700">Driver</label>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="mb-4">
+                            <label for="workExperience" class="block text-gray-700 text-base font-medium mb-2">Prior Experience</label>
+                            <div class="flex gap-3">
+                                <div class="w-1/3">
+                                    <select id="workExperienceYears" class="w-full px-4 py-3 text-base border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                                        <option value="" disabled selected>Years</option>
+                                        <option value="0">0</option>
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                        <option value="4">4</option>
+                                        <option value="5+">5+</option>
+                                    </select>
+                                </div>
+                                <div class="flex-1">
+                                    <input type="text" id="workExperienceDesc" class="w-full px-4 py-3 text-base border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Brief description">
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="mb-4">
+                            <label class="block text-gray-700 text-base font-medium mb-2">ID Proof Upload</label>
+                            <div class="grid grid-cols-1 gap-3">
+                                <div class="file-upload border-2 border-dashed border-gray-300 rounded-lg p-4 text-center">
+                                    <div class="flex flex-col items-center justify-center">
+                                    <i class="fas fa-id-card text-2xl text-gray-400 mb-2"></i>
+                                    <p class="text-gray-600 text-sm mb-2">Aadhar Card</p>
+                                    <p class="text-sm text-gray-500 mb-2">PDF or JPG, max 2MB</p>
+                                    <button type="button" class="bg-blue-50 text-blue-600 px-3 py-2 rounded-lg text-sm hover:bg-blue-100">
+                                        Upload
+                                    </button>
+                                </div>
+                                <input type="file" accept=".pdf,.jpg,.jpeg,.png">
+                            </div>
+                            <div class="file-upload border-2 border-dashed border-gray-300 rounded-lg p-4 text-center">
+                                <div class="flex flex-col items-center justify-center">
+                                    <i class="fas fa-id-card text-2xl text-gray-400 mb-2"></i>
+                                    <p class="text-gray-600 text-sm mb-2">PAN Card</p>
+                                    <p class="text-sm text-gray-500 mb-2">PDF or JPG, max 2MB</p>
+                                    <button type="button" class="bg-blue-50 text-blue-600 px-3 py-2 rounded-lg text-sm hover:bg-blue-100">
+                                        Upload
+                                    </button>
+                                </div>
+                                <input type="file" accept=".pdf,.jpg,.jpeg,.png">
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="mb-4">
+                        <label for="workPassword" class="block text-gray-700 text-base font-medium mb-2">Create Password</label>
+                        <div class="relative">
+                            <input type="password" id="workPassword" class="w-full px-4 py-3 text-base border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Create a strong password" required>
+                            <button type="button" class="absolute right-4 top-3 text-gray-500 hover:text-gray-700" onclick="togglePassword('workPassword')">
+                                <i class="fas fa-eye text-base"></i>
+                            </button>
+                        </div>
+                        <p class="text-sm text-gray-500 mt-2">Minimum 8 characters with at least 1 number</p>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <label for="workConfirmPassword" class="block text-gray-700 text-base font-medium mb-2">Confirm Password</label>
+                        <div class="relative">
+                            <input type="password" id="workConfirmPassword" class="w-full px-4 py-3 text-base border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Confirm your password" required>
+                            <button type="button" class="absolute right-4 top-3 text-gray-500 hover:text-gray-700" onclick="togglePassword('workConfirmPassword')">
+                                <i class="fas fa-eye text-base"></i>
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="mb-6 flex items-center">
+                        <input type="checkbox" id="workTerms" class="w-5 h-5 text-blue-600 rounded focus:ring-blue-500" required>
+                        <label for="workTerms" class="ml-3 text-sm text-gray-700">
+                            I agree to the <a href="#" class="text-blue-600 hover:underline">Terms</a> and <a href="#" class="text-blue-600 hover:underline">Privacy Policy</a>
+                        </label>
+                    </div>
+                    
+                    <button type="submit" class="w-full bg-blue-600 text-white py-3 px-6 rounded-lg text-base font-medium hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 mb-4">
+                        Sign Up as Professional
+                    </button>
+                    
+                    <div class="text-center">
+                        <p class="text-gray-600 text-base">Already registered? <a href="#" class="text-blue-600 font-medium hover:underline">Login</a></p>
+                    </div>
+                </form>
+            </div>
+            
+            <div class="mt-6 text-center">
+                <a href="#" class="text-blue-600 text-sm hover:underline flex items-center justify-center">
+                    <i class="fas fa-question-circle mr-2"></i> Need help?
+                </a>
+            </div>
+            
+            <div class="mt-6 bg-blue-50 rounded-lg p-4 flex items-center security-badge">
+                <div class="bg-blue-100 p-3 rounded-full mr-3">
+                    <i class="fas fa-shield-alt text-blue-600 text-xl"></i>
+                </div>
+                <div>
+                    <p class="text-sm font-medium text-blue-800">Your data is safe with us</p>
+                    <p class="text-sm text-blue-600">Bank-level security protection</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    // Toggle between forms
+    const hireToggle = document.getElementById('hireToggle');
+    const workToggle = document.getElementById('workToggle');
+    const hireForm = document.getElementById('hireForm');
+    const workForm = document.getElementById('workForm');
+    
+    hireToggle.addEventListener('click', () => {
+        hireToggle.classList.add('active');
+        workToggle.classList.remove('active');
+        hireForm.classList.remove('hidden');
+        hireForm.classList.add('visible');
+        workForm.classList.add('hidden');
+        workForm.classList.remove('visible');
+    });
+    
+    workToggle.addEventListener('click', () => {
+        workToggle.classList.add('active');
+        hireToggle.classList.remove('active');
+        workForm.classList.remove('hidden');
+        workForm.classList.add('visible');
+        hireForm.classList.add('hidden');
+        hireForm.classList.remove('visible');
+    });
+    
+    // OTP functionality for hire form
+    const hireSendOtp = document.getElementById('hireSendOtp');
+    const hireOtpField = document.getElementById('hireOtpField');
+    const hireVerifyOtp = document.getElementById('hireVerifyOtp');
+    
+    hireSendOtp.addEventListener('click', () => {
+        // Simulate OTP sending
+        hireOtpField.classList.remove('hidden');
+        hireSendOtp.disabled = true;
+        hireSendOtp.textContent = 'Resend OTP';
+        hireSendOtp.classList.remove('bg-blue-500');
+        hireSendOtp.classList.add('bg-gray-400');
+        
+        // Countdown for resend
+        let countdown = 30;
+        const timer = setInterval(() => {
+            hireSendOtp.textContent = `Resend in ${countdown}s`;
+            countdown--;
+            
+            if (countdown < 0) {
+                clearInterval(timer);
+                hireSendOtp.disabled = false;
+                hireSendOtp.textContent = 'Resend OTP';
+                hireSendOtp.classList.remove('bg-gray-400');
+                hireSendOtp.classList.add('bg-blue-500');
+            }
+        }, 1000);
+    });
+    
+    hireVerifyOtp.addEventListener('click', () => {
+        // Simulate OTP verification
+        const otpInput = document.getElementById('hireOtp');
+        if (otpInput.value.length === 6) {
+            otpInput.disabled = true;
+            hireVerifyOtp.disabled = true;
+            hireVerifyOtp.textContent = 'Verified';
+            hireVerifyOtp.classList.remove('bg-green-500');
+            hireVerifyOtp.classList.add('bg-green-600');
+            
+            // Add checkmark icon
+            const icon = document.createElement('i');
+            icon.className = 'fas fa-check ml-2';
+            hireVerifyOtp.appendChild(icon);
+        } else {
+            alert('Please enter a valid 6-digit OTP');
+        }
+    });
+    
+    // OTP functionality for work form
+    const workSendOtp = document.getElementById('workSendOtp');
+    const workOtpField = document.getElementById('workOtpField');
+    const workVerifyOtp = document.getElementById('workVerifyOtp');
+    
+    workSendOtp.addEventListener('click', () => {
+        // Simulate OTP sending
+        workOtpField.classList.remove('hidden');
+        workSendOtp.disabled = true;
+        workSendOtp.textContent = 'Resend OTP';
+        workSendOtp.classList.remove('bg-blue-500');
+        workSendOtp.classList.add('bg-gray-400');
+        
+        // Countdown for resend
+        let countdown = 30;
+        const timer = setInterval(() => {
+            workSendOtp.textContent = `Resend in ${countdown}s`;
+            countdown--;
+            
+            if (countdown < 0) {
+                clearInterval(timer);
+                workSendOtp.disabled = false;
+                workSendOtp.textContent = 'Resend OTP';
+                workSendOtp.classList.remove('bg-gray-400');
+                workSendOtp.classList.add('bg-blue-500');
+            }
+        }, 1000);
+    });
+    
+    workVerifyOtp.addEventListener('click', () => {
+        // Simulate OTP verification
+        const otpInput = document.getElementById('workOtp');
+        if (otpInput.value.length === 6) {
+            otpInput.disabled = true;
+            workVerifyOtp.disabled = true;
+            workVerifyOtp.textContent = 'Verified';
+            workVerifyOtp.classList.remove('bg-green-500');
+            workVerifyOtp.classList.add('bg-green-600');
+            
+            // Add checkmark icon
+            const icon = document.createElement('i');
+            icon.className = 'fas fa-check ml-2';
+            workVerifyOtp.appendChild(icon);
+        } else {
+            alert('Please enter a valid 6-digit OTP');
+        }
+    });
+    
+    // Toggle password visibility
+    function togglePassword(id) {
+        const input = document.getElementById(id);
+        const icon = input.nextElementSibling.querySelector('i');
+        
+        if (input.type === 'password') {
+            input.type = 'text';
+            icon.classList.remove('fa-eye');
+            icon.classList.add('fa-eye-slash');
+        } else {
+            input.type = 'password';
+            icon.classList.remove('fa-eye-slash');
+            icon.classList.add('fa-eye');
+        }
+    }
+    
+    // File upload preview (simplified)
+    document.querySelectorAll('.file-upload input[type="file"]').forEach(input => {
+        input.addEventListener('change', function(e) {
+            const container = this.parentElement;
+            const fileName = this.files[0]?.name || 'No file selected';
+            
+            // Update UI to show file selected
+            const textElement = container.querySelector('p:first-of-type');
+            if (textElement) {
+                textElement.textContent = fileName;
+                textElement.classList.add('font-medium', 'text-blue-600');
+                
+                // Add checkmark
+                const icon = container.querySelector('i');
+                if (icon) {
+                    icon.classList.remove('text-gray-400');
+                    icon.classList.add('text-green-500');
+                    icon.classList.remove('fa-id-card', 'fa-camera');
+                    icon.classList.add('fa-check-circle');
+                }
+            }
+        });
+    });
+</script>
+</body>
+</html>
